@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/fristFragment">
+
+    <fragment
+        android:id="@+id/fristFragment"
+        android:name="com.zidani.contact.FristFragment"
+        android:label="fragment_frist"
+        tools:layout="@layout/fragment_frist" >
+        <action
+            android:id="@+id/navigate_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.zidani.contact.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/navigate_to_fristFragment"
+            app:destination="@id/fristFragment" />
+        <action
+            android:id="@+id/navigate_to_contactListFragment"
+            app:destination="@id/contactListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactListFragment"
+        android:name="com.zidani.contact.ContactListFragment"
+        android:label="fragment_contact_list"
+        tools:layout="@layout/fragment_contact_list" >
+        <action
+            android:id="@+id/navigate_to_secondFragment"
+            app:destination="@id/fristFragment" />
+        <action
+            android:id="@+id/action_contactListFragment_to_contactView"
+            app:destination="@id/contactView" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactView"
+        android:name="com.zidani.contact.contactView"
+        android:label="fragment_contact_view"
+        tools:layout="@layout/fragment_contact_view" >
+        <action
+            android:id="@+id/action_contactView_to_contactListFragment"
+            app:destination="@id/contactListFragment" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="userImageUrl"
+            app:argType="string" />
+    </fragment>
+</navigation>
